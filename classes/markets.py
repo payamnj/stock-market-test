@@ -49,7 +49,13 @@ class Market(object):
 			while type_input.upper() not in ('BUY', 'SELL'):
 				type_input = raw_input('Trade type? (BUY/SELL) ')
 
-			quantity_input = input('Quantity of shares? ')
+			quantity_entered = False
+			while quantity_entered != True:
+				try:
+					quantity_input = input('Quantity of shares? ')
+					quantity_entered = True
+				except:
+					print('\nPlease enter a numeric value!\n')
 
 			# add a record to the instance's trades list
 			stock.trade(type_input, quantity_input)
